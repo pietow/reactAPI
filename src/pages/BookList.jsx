@@ -13,14 +13,18 @@ export default function Books() {
             .then((body) => body.json())
             .then((data) => setBooks(data))
     }, [])
+    const bookItems = books.map((book) => {
+        return <li key={book.id}>{book.title}</li>
+    })
     return (
-        <div className="flex flex-col p-5 items-center bg-gray-600 h-screen">
-            <nav>
+        <div className="text-white flex flex-col p-5 items-center bg-gray-600 h-screen">
+            <nav className="p-5">
                 <Link className="text-3xl hover:text-red-400" to="/">
                     Home
                 </Link>
             </nav>
             <h1 className="text-3xl underline">Books</h1>
+            <ul className=" text-center">{bookItems}</ul>
         </div>
     )
 }

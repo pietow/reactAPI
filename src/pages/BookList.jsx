@@ -12,6 +12,7 @@ export default function Books() {
         fetch(getFetchUrl())
             .then((body) => body.json())
             .then((data) => setBooks(data))
+        fetch(getFetchUrl()).then((body) => console.log(body))
     }, [])
     const bookItems = books.map((book) => {
         return <li key={book.id}>{book.title}</li>
